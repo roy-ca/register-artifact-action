@@ -17,7 +17,7 @@
       "register",
       "artifact"
     ],
-    "author": "ServiceNow",
+    "author": "roy-ca",
     "license": "ISC",
     "bugs": {
       "url": "https://github.com/roy-ca/register-artifact-action/issues"

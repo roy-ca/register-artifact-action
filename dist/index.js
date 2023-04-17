@@ -5229,6 +5229,7 @@ const axios = __nccwpck_require__(6805);
             'branchName': `${githubContext.ref_name}`
         };
         console.log("paylaod to register artifact: " + JSON.stringify(payload));
+        console.log("Token:"+securityToken);
     } catch (e) {
         core.setFailed(`Exception setting the payload to register artifact ${e}`);
         return;
