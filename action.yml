@@ -1,5 +1,5 @@
-name: 'ServiceNow DevOps Register Artifact'
-description: 'Register Artifact Details in ServiceNow'
+name: ' Register Artifact Custom Action '
+description: 'Register Artifact Details'
 inputs:
   devops-integration-user-name:
     description: 'Devops Integration User Name'

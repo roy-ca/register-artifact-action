@@ -49,7 +49,7 @@ const axios = require('axios');
     }
 
     let snowResponse;
-    const endpoint = '';
+    let endpoint = '';
     if(securityToken === '')
         endpoint = `${instanceUrl}/api/sn_devops/devops/artifact/registration?orchestrationToolId=${toolId}`;
     else

@@ -5236,7 +5236,7 @@ const axios = __nccwpck_require__(6805);
     }
 
     let snowResponse;
-    const endpoint = '';
+    let endpoint = '';
     if(securityToken === '')
         endpoint = `${instanceUrl}/api/sn_devops/devops/artifact/registration?orchestrationToolId=${toolId}`;
     else
