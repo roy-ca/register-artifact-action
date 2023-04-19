@@ -5211,7 +5211,7 @@ const axios = __nccwpck_require__(6805);
         console.log("Token:"+securityToken);
         const defaultHeaders = {
                 'Accept': 'application/json' ,
-                'Authorization': 'Bearer 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' 
+                'Authorization': 'Bearer '+`${securityToken}` 
         };
         let httpHeaders = { headers: defaultHeaders };
         console.log("Headers:"+JSON.stringify(httpHeaders));
