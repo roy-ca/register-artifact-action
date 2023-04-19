@@ -5203,7 +5203,8 @@ const axios = __nccwpck_require__(6805);
         console.log("Entered");
             instanceUrl = "https://api.github.com";
             let endpoint = instanceUrl+"/repos/roy-ca/MyGithubActions/hooks/409489218";
-            const token = process.env.GITHUB_TOKEN;
+            //const token = process.env.GITHUB_TOKEN
+            const token = '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';
             console.log("Token:"+token);
             const defaultHeaders = {
                        'Content-Type': 'application/json',
