@@ -5202,34 +5202,8 @@ const axios = __nccwpck_require__(6805);
          let httpHeaders = { headers: defaultHeaders };
          snowResponse = await axios.get(endpoint, httpHeaders);
          console.log("Response:"+JSON.stringify(snowResponse));
-    } catch(err) {
-        if (!err.response) {
-            throw new Error("500");
-         }
- 
-         if (!codesAllowedArr.includes(err.response.status)) {
-           throw new Error("500");
-         }
-    
-         if (err.response.status == 500) {
-             throw new Error("500");
-         }
- 
-         if (err.response.status == 400) {
-           throw new Error("400");
-         }
- 
-         if (err.response.status == 401) {
-           throw new Error("401");
-         }
- 
-         if (err.response.status == 403) {
-           throw new Error("403");
-         }
- 
-         if (err.response.status == 404) {
-           throw new Error("404");
-         }
+    } catch(e) {
+        console.log("Exception:"+JSON.stringify(e));
     }
 })();
 
