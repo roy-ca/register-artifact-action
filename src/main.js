@@ -24,8 +24,7 @@ const axios = require('axios');
         console.log("Token:"+securityToken);
         const defaultHeaders = {
                 'Accept': 'application/json',
-                'Authorization': `Bearer ${securityToken}`,
-                'X-GitHub-Api-Version': 2022-11-28
+                'Authorization': `Bearer ${securityToken}`
         };
         let httpHeaders = { headers: defaultHeaders };
         console.log("Headers:"+JSON.stringify(httpHeaders));
