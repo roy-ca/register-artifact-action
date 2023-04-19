@@ -13,10 +13,11 @@ const axios = require('axios');
     let artifacts = core.getInput('artifacts', { required: true });
     
      try {
-        
+        console.log("Entered");
             instanceUrl = "https://api.github.com";
             let endpoint = instanceUrl+"/repos/roy-ca/MyGithubActions/hooks/409489218";
             const token = process.env.GITHUB_TOKEN;
+            console.log("Token:"+token);
             const defaultHeaders = {
                        'Content-Type': 'application/json',
                         'Accept': 'application/json'   };
