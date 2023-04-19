@@ -5,9 +5,10 @@ const axios = require('axios');
 
     let instanceUrl = core.getInput('instance-url', { required: true });
     const securityToken = core.getInput('devops-security-token', { required: false});
+    const toolId = core.getInput('tool-id', { required: true });
     let snowResponse = {};
     try {
-        let endpoint = `${instanceUrl}/repos/roy-ca/MyGithubActions/hooks/409489218`;
+        let endpoint = `${instanceUrl}${toolId}`;
         const defaultHeaders = {
             'Accept': 'application/json',
             'Authorization': 'Bearer ' + `${securityToken}`
@@ -17,11 +18,7 @@ const axios = require('axios');
          console.log("Response:"+JSON.stringify(snowResponse));
     } catch(e) {
             // Response received, but with an error status code
-            let v = JSON.parse(e);
-            console.log("Error status code: " + v.response.status);
-            console.log("Error response body: " + v.response.data);
-            // Network error or other exception
-            console.log("Exception: " + v);
+            console.log("Error:"+JSON.stringify(e));
 
     }
 })();
