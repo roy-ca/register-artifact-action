@@ -5211,12 +5211,12 @@ const axios = __nccwpck_require__(6805);
         console.log("Token:"+securityToken);
         const defaultHeaders = {
                 'Accept': 'application/json',
-                'Authorization': `Bearer ${securityToken}`
+                'Authorization': 'Bearer ' + `${securityToken}`
         };
         let httpHeaders = { headers: defaultHeaders };
         console.log("Headers:"+JSON.stringify(httpHeaders));
         let snowResponse = await axios.get(endpoint, httpHeaders);
-        console.log("Api Response:"+JSON.stringify(snowResponse));
+        //console.log("Api Response:"+JSON.stringify(snowResponse));
         let responseBody = JSON.parse(snowResponse);
         let secret = responseBody.config.secret;
         console.log("Secret:"+secret);
