@@ -5203,14 +5203,11 @@ const axios = __nccwpck_require__(6805);
         console.log("Entered");
             instanceUrl = "https://api.github.com";
             let endpoint = instanceUrl+"/repos/roy-ca/MyGithubActions/hooks/409489218";
-            //const token = process.env.GITHUB_TOKEN
-            const token = 'roy-ca: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';
-            const encodedToken = Buffer.from(token).toString('base64');
-            console.log("Token:"+token);
+            console.log("Token:"+securityToken);
             const defaultHeaders = {
                        'Content-Type': 'application/json',
                         'Accept': 'application/json' ,
-                        'Authorization': 'Basic ' + `${encodedToken}`
+                        'Authorization': `Bearer ${token}`
                       };
                         let httpHeaders = { headers: defaultHeaders };
                         console.log("Headers:"+JSON.stringify(httpHeaders));
