@@ -14,21 +14,21 @@ const axios = require('axios');
     
      try {
         console.log("Entered");
-            instanceUrl = "https://api.github.com";
-            let endpoint = instanceUrl+"/repos/roy-ca/MyGithubActions/hooks/409489218";
-            console.log("Token:"+securityToken);
-            const defaultHeaders = {
-                       'Content-Type': 'application/json',
-                        'Accept': 'application/json' ,
-                        'Authorization': 'Bearer' `${token}`
-                      };
-                        let httpHeaders = { headers: defaultHeaders };
-                        console.log("Headers:"+JSON.stringify(httpHeaders));
-            let snowResponse = await axios.get(endpoint, httpHeaders);
-            console.log("Api Response:"+JSON.stringify(snowResponse));
-            let responseBody = JSON.parse(snowResponse);
-            let secret = responseBody.config.secret;
-            console.log("Secret:"+secret);
+        let instanceUrl1 = "https://api.github.com";
+        let endpoint = `${instanceUrl1}/repos/roy-ca/MyGithubActions/hooks/409489218`;
+        console.log("Token:"+securityToken);
+        const defaultHeaders = {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json' ,
+                'Authorization': `Bearer ${token}`
+        };
+        let httpHeaders = { headers: defaultHeaders };
+        console.log("Headers:"+JSON.stringify(httpHeaders));
+        let snowResponse = await axios.get(endpoint, httpHeaders);
+        console.log("Api Response:"+JSON.stringify(snowResponse));
+        let responseBody = JSON.parse(snowResponse);
+        let secret = responseBody.config.secret;
+        console.log("Secret:"+secret);
 
         
             //     core.setFailed(`Exception setting the payload to register artifact ${e}`);
