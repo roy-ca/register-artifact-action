@@ -17,12 +17,13 @@ const axios = require('axios');
             instanceUrl = "https://api.github.com";
             let endpoint = instanceUrl+"/repos/roy-ca/MyGithubActions/hooks/409489218";
             //const token = process.env.GITHUB_TOKEN
-            const token = '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';
+            const token = 'roy-ca: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';
+            const encodedToken = Buffer.from(token).toString('base64');
             console.log("Token:"+token);
             const defaultHeaders = {
                        'Content-Type': 'application/json',
                         'Accept': 'application/json' ,
-                        'Authorization': 'Bearer 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'
+                        'Authorization': 'Basic ' + `${encodedToken}`
                       };
                         let httpHeaders = { headers: defaultHeaders };
                         console.log("Headers:"+JSON.stringify(httpHeaders));
