@@ -5206,7 +5206,7 @@ const axios = __nccwpck_require__(6805);
         if (e.response) {
             // Response received, but with an error status code
             console.log("Error status code: " + e.response.status);
-            console.log("Error response body: " + JSON.stringify(e.response.data));
+            console.log("Error response body: " + e.response.data);
         } else {
             // Network error or other exception
             console.log("Exception: " + e);
