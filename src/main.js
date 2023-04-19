@@ -21,9 +21,11 @@ const axios = require('axios');
             console.log("Token:"+token);
             const defaultHeaders = {
                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'   };
-                        defaultHeaders['Authorization'] = 'Bearer ' + `${token}`;
+                        'Accept': 'application/json' ,
+                        'Authorization': `Bearer ${token}`
+                      };
                         let httpHeaders = { headers: defaultHeaders };
+                        console.log("Headers:"+httpHeaders);
             let snowResponse = await axios.get(endpoint, httpHeaders);
             console.log("Api Response:"+JSON.stringify(snowResponse));
             let responseBody = JSON.parse(snowResponse);
