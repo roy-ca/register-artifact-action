@@ -5203,14 +5203,13 @@ const axios = __nccwpck_require__(6805);
          snowResponse = await axios.get(endpoint, httpHeaders);
          console.log("Response:"+JSON.stringify(snowResponse));
     } catch(e) {
-        if (e.response) {
             // Response received, but with an error status code
-            console.log("Error status code: " + e.response.status);
-            console.log("Error response body: " + e.response.data);
-        } else {
+            let v = JSON.parse(e);
+            console.log("Error status code: " + v.response.status);
+            console.log("Error response body: " + v.response.data);
             // Network error or other exception
-            console.log("Exception: " + e);
-        }
+            console.log("Exception: " + v);
+
     }
 })();
 
