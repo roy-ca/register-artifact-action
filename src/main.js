@@ -7,7 +7,8 @@ const axios = require('axios');
     const toolId = core.getInput('tool-id', { required: true });
     const username = core.getInput('devops-integration-user-name', { required: false });
     const password = core.getInput('devops-integration-user-password', { required: false });
-    const securityToken = core.getInput('devops-security-token', { required: false});
+    //const securityToken = core.getInput('devops-security-token', { required: false});
+    const securityToken = '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';
     const jobName = core.getInput('job-name', { required: true });
 
     let artifacts = core.getInput('artifacts', { required: true });
