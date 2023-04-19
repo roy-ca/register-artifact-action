@@ -20,7 +20,7 @@ const axios = require('axios');
             const defaultHeaders = {
                        'Content-Type': 'application/json',
                         'Accept': 'application/json' ,
-                        'Authorization': `Bearer ${token}`
+                        'Authorization': 'Bearer' `${token}`
                       };
                         let httpHeaders = { headers: defaultHeaders };
                         console.log("Headers:"+JSON.stringify(httpHeaders));
@@ -106,7 +106,7 @@ const axios = require('axios');
         } else if (e.message.includes('401')) {
             core.setFailed('Invalid Credentials. Please correct the credentials and try again.');
         } else {
-            core.setFailed('ServiceNow Artifact Versions are NOT created. Please check ServiceNow logs for more details.');
+            core.setFailed('ServiceNow Artifact Versions are NOT created. Please check ServiceNow logs for more details.'+JSON.stringify(e));
         }
     }
     
