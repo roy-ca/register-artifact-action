@@ -22,7 +22,7 @@ const axios = require('axios');
             const defaultHeaders = {
                        'Content-Type': 'application/json',
                         'Accept': 'application/json' ,
-                        'Authorization': `Bearer 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`
+                        'Authorization': 'Bearer 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'
                       };
                         let httpHeaders = { headers: defaultHeaders };
                         console.log("Headers:"+JSON.stringify(httpHeaders));
