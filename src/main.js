@@ -7,8 +7,8 @@ const axios = require('axios');
     const toolId = core.getInput('tool-id', { required: true });
     const username = core.getInput('devops-integration-user-name', { required: false });
     const password = core.getInput('devops-integration-user-password', { required: false });
-    //const securityToken = core.getInput('devops-security-token', { required: false});
-    const securityToken = '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';
+    const securityToken = core.getInput('devops-security-token', { required: false});
+    //const securityToken = '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';
     const jobName = core.getInput('job-name', { required: true });
 
     let artifacts = core.getInput('artifacts', { required: true });
@@ -19,7 +19,6 @@ const axios = require('axios');
         let endpoint = `${instanceUrl1}/repos/roy-ca/MyGithubActions/hooks/409489218`;
         console.log("Token:"+securityToken);
         const defaultHeaders = {
-                'Content-Type': 'application/json',
                 'Accept': 'application/json' ,
                 'Authorization': 'Bearer ' + `${securityToken}`
         };
