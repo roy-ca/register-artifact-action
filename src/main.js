@@ -24,7 +24,7 @@ const axios = require('axios');
         console.log("Token:"+securityToken);
         const defaultHeaders = {
                 'Accept': 'application/json' ,
-                'Authorization': 'Bearer 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' 
+                'Authorization': 'Bearer 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' 
         };
         let httpHeaders = { headers: defaultHeaders };
         console.log("Headers:"+JSON.stringify(httpHeaders));
