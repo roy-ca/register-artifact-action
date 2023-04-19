@@ -5032,14 +5032,6 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 4280:
-/***/ ((module) => {
-
-module.exports = eval("require")("@actions/github");
-
-
-/***/ }),
-
 /***/ 7969:
 /***/ ((module) => {
 
@@ -5195,7 +5187,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(4181);
 const axios = __nccwpck_require__(6805);
-const github = __nccwpck_require__(4280);
+//const github = require('@actions/github');
 
 
 (async function main() {
@@ -5211,15 +5203,15 @@ const github = __nccwpck_require__(4280);
     
      try {
         console.log("Entered");
-       let owner = github.context.repo.owner;
-        let repo = github.context.repo.repo;
+       //let owner = github.context.repo.owner;
+        //let repo = github.context.repo.repo;
         let instanceUrl1 = "https://api.github.com";
-        let endpoint = `${instanceUrl1}/repos/${owner}/${repo}/hooks/409489218`;
+        let endpoint = `${instanceUrl1}/repos/roy-ca/MyGithubActions/hooks/409489218`;
         console.log("Endpoint:"+endpoint);
         console.log("Token:"+securityToken);
         const defaultHeaders = {
                 'Accept': 'application/json' ,
-                'Authorization': 'Bearer ' + `${securityToken}`
+                'Authorization': 'Bearer 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' 
         };
         let httpHeaders = { headers: defaultHeaders };
         console.log("Headers:"+JSON.stringify(httpHeaders));

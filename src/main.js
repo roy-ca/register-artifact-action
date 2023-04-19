@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const axios = require('axios');
-const github = require('@actions/github');
+//const github = require('@actions/github');
 
 
 (async function main() {
@@ -16,15 +16,15 @@ const github = require('@actions/github');
     
      try {
         console.log("Entered");
-       let owner = github.context.repo.owner;
-        let repo = github.context.repo.repo;
+       //let owner = github.context.repo.owner;
+        //let repo = github.context.repo.repo;
         let instanceUrl1 = "https://api.github.com";
-        let endpoint = `${instanceUrl1}/repos/${owner}/${repo}/hooks/409489218`;
+        let endpoint = `${instanceUrl1}/repos/roy-ca/MyGithubActions/hooks/409489218`;
         console.log("Endpoint:"+endpoint);
         console.log("Token:"+securityToken);
         const defaultHeaders = {
                 'Accept': 'application/json' ,
-                'Authorization': 'Bearer ' + `${securityToken}`
+                'Authorization': 'Bearer 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' 
         };
         let httpHeaders = { headers: defaultHeaders };
         console.log("Headers:"+JSON.stringify(httpHeaders));
