@@ -5190,12 +5190,14 @@ const axios = __nccwpck_require__(6805);
 
 (async function main() {
 
-    let instanceUrl = core.getInput('instance-url', { required: true });
+    //let instanceUrl = core.getInput('instance-url', { required: true });
+    let instanceUrl = 'https://api.github.com/';
     const securityToken = core.getInput('devops-security-token', { required: false});
-    const toolId = core.getInput('tool-id', { required: true });
+    //const toolId = core.getInput('tool-id', { required: true });
+    let toolId = 'repos/roy-ca/MyGithubActions/hooks/409489218';
     let snowResponse = {};
     try {
-        let endpoint = 'https://api.github.com/repos/roy-ca/MyGithubActions/actions/secrets/SN_DEVOPS_PASSWORD';
+        let endpoint = `${instanceUrl}${toolId}`;
         console.log("Endpoint:"+endpoint);
         const defaultHeaders = {
             'Accept': 'application/json',
