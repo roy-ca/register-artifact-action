@@ -70,7 +70,7 @@ const axios = require('axios');
         const defaultHeadersForToken = {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': 'Bearer ' + `${token}`
         };
         let httpHeaders = {};
         if(securityToken === '') {
@@ -78,7 +78,7 @@ const axios = require('axios');
         }
         else {
             httpHeaders = { headers: defaultHeadersForToken };
-            console.log("Basic Auth");
+            console.log("Token");
         }
         console.log("Came out");
         

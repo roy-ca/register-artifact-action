@@ -5257,7 +5257,7 @@ const axios = __nccwpck_require__(6805);
         const defaultHeadersForToken = {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': 'Bearer ' + `${token}`
         };
         let httpHeaders = {};
         if(securityToken === '') {
@@ -5265,7 +5265,7 @@ const axios = __nccwpck_require__(6805);
         }
         else {
             httpHeaders = { headers: defaultHeadersForToken };
-            console.log("Basic Auth");
+            console.log("Token");
         }
         console.log("Came out");
         
