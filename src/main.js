@@ -57,7 +57,8 @@ const axios = require('axios');
         const defaultHeaders = {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Authorization': 'Basic ' + `${encodedToken}`
+            'Authorization': 'Basic ' + `${encodedToken}`,
+            'token':`${securityToken}`
         };
 
         let httpHeaders = { headers: defaultHeaders };
