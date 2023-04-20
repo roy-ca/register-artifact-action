@@ -65,13 +65,13 @@ const axios = require('axios');
             'Accept': 'application/json'
         };
         if(securityToken === '') {
+            console.log("Came inside");
             token = `${username}:${password}`;
             encodedToken = Buffer.from(token).toString('base64');
             defaultHeaders['Authorization'] = 'Basic ' + `${encodedToken}`;
         }
         else {
             encodedToken = securityToken;
-            //defaultHeaders['Authorization'] = 'Bearer ' + `${encodedToken}`;
             defaultHeaders['token'] = encodedToken;
         }
 
