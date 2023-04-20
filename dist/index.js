@@ -5245,24 +5245,30 @@ const axios = __nccwpck_require__(6805);
 
 
     try {
-        const token = '';
-        const encodedToken = '';
-        let defaultHeaders = {
+        const token = `${username}:${password}`;
+        const encodedTokenForBasicAuth = Buffer.from(token).toString('base64');;
+        const defaultHeadersForBasicAuth = {
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'Authorization': 'Basic ' + `${encodedTokenForBasicAuth}`
         };
+
+        
+        const defaultHeadersForToken = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'token': `${securityToken}`
+        };
+        let httpHeaders = {};
         if(securityToken === '') {
-            console.log("Came inside");
-            token = `${username}:${password}`;
-            encodedToken = Buffer.from(token).toString('base64');
-            defaultHeaders['Authorization'] = 'Basic ' + `${encodedToken}`;
+            httpHeaders = { headers: defaultHeadersForBasicAuth };
         }
         else {
-            encodedToken = securityToken;
-            defaultHeaders['token'] = encodedToken;
+            httpHeaders = { headers: defaultHeadersForToken };
+            console.log("Basic Auth");
         }
         console.log("Came out");
-        let httpHeaders = { headers: defaultHeaders };
+        
         console.log("Headers:"+JSON.stringify(httpHeaders));
         snowResponse = await axios.post(endpoint, JSON.stringify(payload), httpHeaders);
 
