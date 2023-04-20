@@ -49,10 +49,13 @@ const axios = require('axios');
 
     let snowResponse;
     let endpoint ='';
+    console.log("Security Token:"+securityToken);
     if(securityToken === '')
         endpoint = `${instanceUrl}/api/sn_devops/devops/artifact/registration?orchestrationToolId=${toolId}`;
     else
         endpoint = `${instanceUrl}/api/sn_devops/v2/devops/artifact/registration?orchestrationToolId=${toolId}`;
+    console.log("Endpoint:"+endpoint);
+
 
     try {
         const token = '';
@@ -73,6 +76,7 @@ const axios = require('axios');
         }
 
         let httpHeaders = { headers: defaultHeaders };
+        console.log("Headers:"+JSON.stringify(httpHeaders));
         snowResponse = await axios.post(endpoint, JSON.stringify(payload), httpHeaders);
 
     } catch (e) {
