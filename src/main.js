@@ -48,21 +48,33 @@ const axios = require('axios');
     }
 
     let snowResponse;
-    const endpoint = `${instanceUrl}/api/sn_devops/devops/artifact/registration?orchestrationToolId=${toolId}`;
+    let endpoint ='';
+    if(securityToken === '')
+        endpoint = `${instanceUrl}/api/sn_devops/devops/artifact/registration?orchestrationToolId=${toolId}`;
+    else
+        endpoint = `${instanceUrl}/api/sn_devops/v2/devops/artifact/registration?orchestrationToolId=${toolId}`;
 
     try {
-        const token = `${username}:${password}`;
-        const encodedToken = Buffer.from(token).toString('base64');
-
-        const defaultHeaders = {
+        const token = '';
+        const encodedToken = '';
+        let defaultHeaders = {
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': 'Basic ' + `${encodedToken}`,
-            'token':`${securityToken}`
+            'Accept': 'application/json'
         };
+        if(securityToken === '') {
+            token = `${username}:${password}`;
+            encodedToken = Buffer.from(token).toString('base64');
+            defaultHeaders['Authorization'] = 'Basic ' + `${encodedToken}`;
+        }
+        else {
+            encodedToken = securityToken;
+            //defaultHeaders['Authorization'] = 'Bearer ' + `${encodedToken}`;
+            defaultHeaders['token'] = encodedToken;
+        }
 
         let httpHeaders = { headers: defaultHeaders };
         snowResponse = await axios.post(endpoint, JSON.stringify(payload), httpHeaders);
+
     } catch (e) {
         if (e.message.includes('ECONNREFUSED') || e.message.includes('ENOTFOUND') || e.message.includes('405')) {
             core.setFailed('ServiceNow Instance URL is NOT valid. Please correct the URL and try again.');
