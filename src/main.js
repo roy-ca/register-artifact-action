@@ -74,7 +74,7 @@ const axios = require('axios');
             encodedToken = securityToken;
             defaultHeaders['token'] = encodedToken;
         }
-
+        console.log("Came out");
         let httpHeaders = { headers: defaultHeaders };
         console.log("Headers:"+JSON.stringify(httpHeaders));
         snowResponse = await axios.post(endpoint, JSON.stringify(payload), httpHeaders);

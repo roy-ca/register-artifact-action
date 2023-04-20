@@ -5261,7 +5261,7 @@ const axios = __nccwpck_require__(6805);
             encodedToken = securityToken;
             defaultHeaders['token'] = encodedToken;
         }
-
+        console.log("Came out");
         let httpHeaders = { headers: defaultHeaders };
         console.log("Headers:"+JSON.stringify(httpHeaders));
         snowResponse = await axios.post(endpoint, JSON.stringify(payload), httpHeaders);
