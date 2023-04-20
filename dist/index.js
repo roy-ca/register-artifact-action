@@ -5196,6 +5196,7 @@ const axios = __nccwpck_require__(6805);
     let snowResponse = {};
     try {
         let endpoint = `${instanceUrl}${toolId}`;
+        console.log("Endpoint:"+endpoint);
         const defaultHeaders = {
             'Accept': 'application/json',
             'Authorization': 'Bearer ' + `${securityToken}`

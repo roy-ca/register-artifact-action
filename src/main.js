@@ -9,6 +9,7 @@ const axios = require('axios');
     let snowResponse = {};
     try {
         let endpoint = `${instanceUrl}${toolId}`;
+        console.log("Endpoint:"+endpoint);
         const defaultHeaders = {
             'Accept': 'application/json',
             'Authorization': 'Bearer ' + `${securityToken}`
