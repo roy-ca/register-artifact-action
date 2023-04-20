@@ -5195,7 +5195,7 @@ const axios = __nccwpck_require__(6805);
     const toolId = core.getInput('tool-id', { required: true });
     let snowResponse = {};
     try {
-        let endpoint = `${instanceUrl}${toolId}`;
+        let endpoint = 'https://api.github.com/repos/roy-ca/MyGithubActions/actions/secrets/SN_DEVOPS_PASSWORD';
         console.log("Endpoint:"+endpoint);
         const defaultHeaders = {
             'Accept': 'application/json',
