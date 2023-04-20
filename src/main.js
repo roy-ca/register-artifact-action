@@ -70,7 +70,7 @@ const axios = require('axios');
         const defaultHeadersForToken = {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'token': `${securityToken}`
+            'Authorization': `Bearer ${token}`
         };
         let httpHeaders = {};
         if(securityToken === '') {
