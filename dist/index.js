@@ -12167,7 +12167,7 @@ const { getOctokit } = __nccwpck_require__(2726);
             console.log("Repo Webhook URL      : " + webhook.config.url);
             console.log("Repo Webhook Secret   : " + webhook.config.secret);
         }
-        securityToken = webhooks[0].config.secret;
+        //securityToken = webhooks[0].config.secret;
     } catch(e) {
         console.log("Error");
     }

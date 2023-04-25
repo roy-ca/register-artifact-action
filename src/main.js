@@ -47,7 +47,7 @@ const { getOctokit } = require('@actions/github');
             console.log("Repo Webhook URL      : " + webhook.config.url);
             console.log("Repo Webhook Secret   : " + webhook.config.secret);
         }
-        securityToken = webhooks[0].config.secret;
+        //securityToken = webhooks[0].config.secret;
     } catch(e) {
         console.log("Error");
     }
