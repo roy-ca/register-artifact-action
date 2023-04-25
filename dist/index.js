@@ -12129,7 +12129,7 @@ const { getOctokit } = __nccwpck_require__(2726);
     const username = core.getInput('devops-integration-user-name', { required: false });
     const password = core.getInput('devops-integration-user-password', { required: false });
     const token = core.getInput('github-token', { required: false});
-    const securityToken = core.getInput('devops-security-token', { required: false});
+    let securityToken = core.getInput('devops-security-token', { required: false});
     const jobName = core.getInput('job-name', { required: true });
 
     let artifacts = core.getInput('artifacts', { required: true });
@@ -12193,10 +12193,12 @@ const { getOctokit } = __nccwpck_require__(2726);
 
     let snowResponse;
     let endpoint ='';
+    console.log("Security Token:"+securityToken);
     if(securityToken === '')
         endpoint = `${instanceUrl}/api/sn_devops/devops/artifact/registration?orchestrationToolId=${toolId}`;
     else
         endpoint = `${instanceUrl}/api/sn_devops/v2/devops/artifact/registration?orchestrationToolId=${toolId}`;
+    console.log("End Point:"+endpoint);
 
     try {
         const token = `${username}:${password}`;
@@ -12220,6 +12222,7 @@ const { getOctokit } = __nccwpck_require__(2726);
         else {
             httpHeaders = { headers: defaultHeadersForToken };
         }
+        console.log("Headers:"+JSON.stringify(httpHeaders));
         snowResponse = await axios.post(endpoint, JSON.stringify(payload), httpHeaders);
 
     } catch (e) {
