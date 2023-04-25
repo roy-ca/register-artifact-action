@@ -12125,6 +12125,11 @@ const { getOctokit } = __nccwpck_require__(2726);
 (async function main() {
     try {
         let githubContext = core.getInput('context-github', { required: true });
+        try {
+            githubContext = JSON.parse(githubContext);
+        } catch (e) {
+            core.setFailed(`Exception parsing github context ${e}`);
+        }
         const securityToken = core.getInput('devops-security-token', { required: false});
         const github = getOctokit(securityToken);
         console.log("github for input token : " + JSON.stringify(github));
