@@ -12149,28 +12149,28 @@ const { getOctokit } = __nccwpck_require__(2726);
         core.setFailed(`Exception parsing github context ${e}`);
     }
 
-    try {
-        const github = getOctokit(token);
-        console.log("github for input token : " + JSON.stringify(github));
+    // try {
+    //     const github = getOctokit(token);
+    //     console.log("github for input token : " + JSON.stringify(github));
 
-        const repository = `${githubContext.repository}`;
-        console.log("repository : " + repository);
-        const [owner, repo] = repository.split('/');
-        console.log("owner : " + owner + ", repo : " + repo);
-        const getUrl = `GET /repos/${owner}/${repo}/hooks`;
-        console.log("getUrl : " + getUrl);
+    //     const repository = `${githubContext.repository}`;
+    //     console.log("repository : " + repository);
+    //     const [owner, repo] = repository.split('/');
+    //     console.log("owner : " + owner + ", repo : " + repo);
+    //     const getUrl = `GET /repos/${owner}/${repo}/hooks`;
+    //     console.log("getUrl : " + getUrl);
 
-        const { data: webhooks } = await github.request(getUrl);
-        console.log("getUrl data : " + JSON.stringify(webhooks));
-        for (const webhook of webhooks) {
-            console.log("Repo WebHook details  : " + JSON.stringify(webhook));
-            console.log("Repo Webhook URL      : " + webhook.config.url);
-            console.log("Repo Webhook Secret   : " + webhook.config.secret);
-        }
-        //securityToken = webhooks[0].config.secret;
-    } catch(e) {
-        console.log("Error");
-    }
+    //     const { data: webhooks } = await github.request(getUrl);
+    //     console.log("getUrl data : " + JSON.stringify(webhooks));
+    //     for (const webhook of webhooks) {
+    //         console.log("Repo WebHook details  : " + JSON.stringify(webhook));
+    //         console.log("Repo Webhook URL      : " + webhook.config.url);
+    //         console.log("Repo Webhook Secret   : " + webhook.config.secret);
+    //     }
+    //     //securityToken = webhooks[0].config.secret;
+    // } catch(e) {
+    //     console.log("Error");
+    // }
     let payload;
     
     try {
