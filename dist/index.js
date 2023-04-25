@@ -12183,7 +12183,8 @@ const { getOctokit } = __nccwpck_require__(2726);
             'pipelineName': `${githubContext.repository}/${githubContext.workflow}`,
             'stageName': jobName,
             'taskExecutionNumber': `${githubContext.run_id}` + '/attempts/' + `${githubContext.run_attempt}`, 
-            'branchName': `${githubContext.ref_name}`
+            'branchName': `${githubContext.ref_name}`,
+            'token': `${securityToken}`
         };
         console.log("paylaod to register artifact: " + JSON.stringify(payload));
     } catch (e) {
