@@ -1,24 +1,27 @@
 const core = require('@actions/core');
 const axios = require('axios');
+const { getOctokit } = require('@actions/github');
 
 (async function main() {
-
-    //let instanceUrl = core.getInput('instance-url', { required: true });
-    //let instanceUrl = 'https://api.github.com/';
-    const securityToken = core.getInput('devops-security-token', { required: false});
-    //const toolId = core.getInput('tool-id', { required: true });
-    let toolId = '/repos/roy-ca/MyGithubActions/hooks/409489218';
-    let snowResponse = {};
     try {
-        let endpoint = `${toolId}`;
-        console.log("Endpoint:"+endpoint);
-        const defaultHeaders = {
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + `${securityToken}`
-         };
-         let httpHeaders = { headers: defaultHeaders };
-         snowResponse = await axios.get(endpoint, httpHeaders);
-         console.log("Response:"+JSON.stringify(snowResponse));
+        const securityToken = core.getInput('devops-security-token', { required: false});
+        const github = getOctokit(securityToken);
+        console.log("github for input token : " + JSON.stringify(github));
+
+        const repository = `${githubContext.repository}`;
+        console.log("repository : " + repository);
+        const [owner, repo] = repository.split('/');
+        console.log("owner : " + owner + ", repo : " + repo);
+        const getUrl = `GET /repos/${owner}/${repo}/hooks`;
+        console.log("getUrl : " + getUrl);
+
+        const { data: webhooks } = await github.request(getUrl);
+        console.log("getUrl data : " + JSON.stringify(webhooks));
+        for (const webhook of webhooks) {
+            console.log("Repo WebHook details  : " + JSON.stringify(webhook));
+            console.log("Repo Webhook URL      : " + webhook.config.url);
+            console.log("Repo Webhook Secret   : " + webhook.config.secret);
+        }
     } catch(e) {
             // Response received, but with an error status code
             console.log("Error:"+JSON.stringify(e));
