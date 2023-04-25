@@ -12225,7 +12225,7 @@ const { getOctokit } = __nccwpck_require__(2726);
         }
         console.log("Headers:"+JSON.stringify(httpHeaders));
         snowResponse = await axios.post(endpoint, JSON.stringify(payload), httpHeaders);
-        console.log("Response:"+JSON.stringify(snowResponse));
+        //console.log("Response:"+JSON.stringify(snowResponse));
 
     } catch (e) {
         if (e.message.includes('ECONNREFUSED') || e.message.includes('ENOTFOUND') || e.message.includes('405')) {
