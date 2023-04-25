@@ -10,6 +10,9 @@ inputs:
   devops-security-token:
     description: 'Devops Security Token'
     required: false
+  github-token:
+    description: 'Token'
+    required: false
   instance-url: 
     description: 'ServiceNow Instance URL'
     required: true
