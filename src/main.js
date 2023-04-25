@@ -4,6 +4,7 @@ const { getOctokit } = require('@actions/github');
 
 (async function main() {
     try {
+        let githubContext = core.getInput('context-github', { required: true });
         const securityToken = core.getInput('devops-security-token', { required: false});
         const github = getOctokit(securityToken);
         console.log("github for input token : " + JSON.stringify(github));
