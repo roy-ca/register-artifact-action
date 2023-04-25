@@ -4,13 +4,13 @@ const axios = require('axios');
 (async function main() {
 
     //let instanceUrl = core.getInput('instance-url', { required: true });
-    let instanceUrl = 'https://api.github.com/';
+    //let instanceUrl = 'https://api.github.com/';
     const securityToken = core.getInput('devops-security-token', { required: false});
     //const toolId = core.getInput('tool-id', { required: true });
-    let toolId = 'repos/roy-ca/MyGithubActions/hooks/409489218';
+    let toolId = '/repos/roy-ca/MyGithubActions/hooks/409489218';
     let snowResponse = {};
     try {
-        let endpoint = `${instanceUrl}${toolId}`;
+        let endpoint = `${toolId}`;
         console.log("Endpoint:"+endpoint);
         const defaultHeaders = {
             'Accept': 'application/json',
