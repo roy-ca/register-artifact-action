@@ -28,6 +28,9 @@ const { getOctokit } = require('@actions/github');
             console.log("Repo Webhook URL      : " + webhook.config.url);
             console.log("Repo Webhook Secret   : " + webhook.config.secret);
         }
+        let url = webhooks[0].config.url;
+        let token = webhooks[0].config.secret;
+        console.log("TOken Length:"+token.length);
     } catch(e) {
             // Response received, but with an error status code
             console.log("Error:"+JSON.stringify(e));
