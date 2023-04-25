@@ -11,7 +11,7 @@ const axios = require('axios');
     const jobName = core.getInput('job-name', { required: true });
 
     let artifacts = core.getInput('artifacts', { required: true });
-    
+
     try {
         artifacts = JSON.parse(artifacts);
     } catch (e) {
@@ -49,13 +49,10 @@ const axios = require('axios');
 
     let snowResponse;
     let endpoint ='';
-    console.log("Security Token:"+securityToken);
     if(securityToken === '')
         endpoint = `${instanceUrl}/api/sn_devops/devops/artifact/registration?orchestrationToolId=${toolId}`;
     else
         endpoint = `${instanceUrl}/api/sn_devops/v2/devops/artifact/registration?orchestrationToolId=${toolId}`;
-    console.log("Endpoint:"+endpoint);
-
 
     try {
         const token = `${username}:${password}`;
@@ -78,11 +75,7 @@ const axios = require('axios');
         }
         else {
             httpHeaders = { headers: defaultHeadersForToken };
-            console.log("Token");
         }
-        console.log("Came out");
-        
-        console.log("Headers:"+JSON.stringify(httpHeaders));
         snowResponse = await axios.post(endpoint, JSON.stringify(payload), httpHeaders);
 
     } catch (e) {
